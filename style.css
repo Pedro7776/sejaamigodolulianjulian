@@ -2,15 +2,19 @@
 
 * { box-sizing: border-box; }
 
+html { background: #160c1b; }
+
 body {
   margin: 0;
   min-height: 100vh;
   color: #210d2b;
   font-family: "Comic Neue", "Comic Sans MS", cursive;
-  background-color: #160c1b;
+  background: transparent;
+  /* leve contorno claro para o texto continuar legível sobre a foto */
+  text-shadow: 0 0 3px rgba(255, 255, 255, .9), 0 0 6px rgba(255, 255, 255, .7);
 }
 
-/* Fundo fixo que funciona bem no mobile (background-attachment: fixed bugga no iOS) */
+/* Fundo fixo (funciona no mobile) */
 body::before {
   content: "";
   position: fixed;
@@ -23,25 +27,26 @@ body::before {
   width: min(780px, 94%);
   margin: 24px auto;
   padding: 14px;
-  border: 5px ridge #ff39b9;
-  background: rgba(255, 245, 174, .55);
-  box-shadow: 0 0 25px #ff36c9;
+  border: 5px ridge rgba(255, 57, 185, .6);
+  background: rgba(255, 245, 174, .08);
+  box-shadow: 0 0 25px rgba(255, 54, 201, .5);
 }
 
 .marquee {
   padding: 9px;
   color: #fff;
-  background: rgba(123, 0, 168, .8);
+  background: rgba(123, 0, 168, .35);
   font-weight: 700;
   font-size: 18px;
+  text-shadow: 1px 1px 3px #000;
 }
 
-/* Seções semitransparentes para aparecer o fundo */
+/* Seções quase invisíveis */
 .hero,
 .sad-section,
 .form-section,
 .success-section {
-  background-color: rgba(255, 247, 207, .6);
+  background-color: rgba(255, 247, 207, .08);
 }
 
 .hero { text-align: center; padding: 24px 8px 14px; }
@@ -49,10 +54,11 @@ body::before {
   display: inline-block;
   padding: 8px 12px;
   color: #fff;
-  background: #f00091;
+  background: rgba(240, 0, 145, .6);
   border: 3px dashed #ffed00;
   transform: rotate(-4deg);
   font-weight: 700;
+  text-shadow: 1px 1px 2px #000;
 }
 h1 {
   margin: 18px 0 8px;
@@ -69,9 +75,10 @@ h1 span { color: #5e00a8; }
   margin: 18px auto 0;
   padding: 12px;
   color: #fff;
-  background: rgba(224, 0, 85, .75);
+  background: rgba(224, 0, 85, .4);
   border: 3px dotted #fff000;
   font-weight: 700;
+  text-shadow: 1px 1px 3px #000;
   animation: shake 0.35s infinite alternate;
 }
 @keyframes shake {
@@ -86,7 +93,7 @@ h1 span { color: #5e00a8; }
   padding: 12px;
   margin: 16px 0;
   text-align: center;
-  border: 2px solid #8a16b4;
+  border: 2px solid rgba(138, 22, 180, .7);
   overflow: hidden;
 }
 
@@ -95,14 +102,15 @@ h1 span { color: #5e00a8; }
   margin-bottom: 12px;
 }
 
-/* Foto triste: tamanho controlado, sem esticar (a classe no HTML é julian-triste) */
-.julian-triste,
-.julian-sad {
+/* Foto triste: mostra a imagem INTEIRA, sem esticar nem cortar */
+img.julian-triste,
+img.julian-sad {
   display: block;
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  object-fit: contain;
+  width: 100% !important;
+  max-width: 260px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
   margin: 10px auto;
   border: 2px solid #e60091;
 }
@@ -118,9 +126,10 @@ h1 span { color: #5e00a8; }
 .privacy {
   padding: 12px;
   color: #fff;
-  background: rgba(124, 22, 126, .75);
+  background: rgba(124, 22, 126, .4);
   border: 2px dashed #ffec00;
   font-weight: 700;
+  text-shadow: 1px 1px 3px #000;
 }
 form { max-width: 520px; margin: 20px auto 0; text-align: left; }
 label {
@@ -135,12 +144,13 @@ input, textarea {
   padding: 12px;
   border: 3px inset #e04ab3;
   border-radius: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, .45);
   color: #2a1035;
+  text-shadow: none;
   font: 17px "Comic Neue", "Comic Sans MS", cursive;
 }
 textarea { resize: vertical; }
-input:focus, textarea:focus { outline: 3px solid #ffe500; }
+input:focus, textarea:focus { outline: 3px solid #ffe500; background: rgba(255, 255, 255, .8); }
 .error-message {
   display: none;
   margin: 8px 0 0;
@@ -156,7 +166,7 @@ button {
   margin: 20px auto 8px;
   padding: 16px 10px;
   border: 4px outset #ffb8ed;
-  background: linear-gradient(90deg, #ff39a8, #a600c7, #ff39a8);
+  background: linear-gradient(90deg, rgba(255, 57, 168, .8), rgba(166, 0, 199, .8), rgba(255, 57, 168, .8));
   color: #fff;
   font: 700 16px "Press Start 2P", monospace;
   line-height: 1.7;
@@ -164,7 +174,7 @@ button {
   text-shadow: 2px 2px #65005c;
 }
 button:hover { filter: hue-rotate(35deg); transform: scale(1.02); }
-.tiny { font-size: 12px; opacity: .8; }
+.tiny { font-size: 12px; opacity: .9; }
 
 .success-section[hidden] { display: none; }
 .julian-happy {
@@ -172,7 +182,7 @@ button:hover { filter: hue-rotate(35deg); transform: scale(1.02); }
   width: min(380px, 100%);
   height: auto;
   margin: 10px auto;
-  object-fit: cover;
+  object-fit: contain;
   border: 8px ridge #ff39a8;
 }
 .success-section h2 { color: #ed008c; }
@@ -184,13 +194,13 @@ button:hover { filter: hue-rotate(35deg); transform: scale(1.02); }
 }
 
 footer, .counter { padding: 10px; text-align: center; font-size: 12px; }
-footer { background: rgba(255, 247, 207, .6); }
-.counter { color: #fff; background: rgba(38, 11, 53, .85); }
+footer { background: rgba(255, 247, 207, .08); }
+.counter { color: #fff; background: rgba(38, 11, 53, .5); text-shadow: 1px 1px 2px #000; }
 
 @media (max-width: 520px) {
   .site { margin: 8px auto; padding: 8px; border-width: 4px; }
   .sad-section, .form-section, .success-section { padding: 12px; }
-  .julian-triste, .julian-sad { max-width: 180px; }
+  img.julian-triste, img.julian-sad { max-width: 220px !important; }
   .marquee { font-size: 15px; }
   button { font-size: 12px; }
 }
