@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Press+Start+2P&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #210d2b;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  background: #160c1b url("julian-fundo.jpeg") center center / 100% 100% fixed no-repeat;
+}
+
+.site {
+  width: min(780px, 94%);
+  margin: 24px auto;
+  padding: 14px;
+  border: 5px ridge #ff39b9;
+  background: rgba(255, 245, 174, .94);
+  box-shadow: 0 0 25px #ff36c9;
+}
+
+.marquee {
+  padding: 9px;
+  color: #fff;
+  background: #7b00a8;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.hero { text-align: center; padding: 24px 8px 14px; }
+.sticker {
+  display: inline-block;
+  padding: 8px 12px;
+  color: #fff;
+  background: #f00091;
+  border: 3px dashed #ffed00;
+  transform: rotate(-4deg);
+  font-weight: 700;
+}
+h1 {
+  margin: 18px 0 8px;
+  color: #ed008c;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(22px, 5vw, 38px);
+  line-height: 1.6;
+  text-shadow: 3px 3px #ffe600, 5px 5px #5d167d;
+}
+h1 span { color: #5e00a8; }
+.subtitle { font-weight: 700; letter-spacing: 2px; }
+.warning {
+  margin: 18px auto 0;
+  padding: 12px;
+  color: #fff;
+  background: #e00055;
+  border: 3px dotted #fff000;
+  font-weight: 700;
+  animation: shake 0.35s infinite alternate;
+}
+@keyframes shake {
+  from { transform: rotate(-.5deg); }
+  to { transform: rotate(.5deg); }
+}
+
+.sad-section, .form-section, .success-section {
+  margin: 16px 0;
+  padding: 20px;
+  text-align: center;
+  border: 4px double #8a16b4;
+  background: #fff7cf;
+}
+h2 {
+  color: #7900a8;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(15px, 3vw, 20px);
+  line-height: 1.7;
+}
+.julian-sad {
+  display: block;
+  width: min(330px, 100%);
+  height: 220px;
+  margin: 14px auto;
+  object-fit: cover;
+  filter: grayscale(75%) contrast(1.1);
+  border: 7px ridge #e60091;
+}
+.sad-caption {
+  color: #e00070;
+  font-size: 25px;
+  font-weight: 700;
+  text-shadow: 1px 1px #ffe500;
+}
+.intro { font-size: 18px; }
+.privacy {
+  padding: 12px;
+  color: #fff;
+  background: #7c167e;
+  border: 2px dashed #ffec00;
+  font-weight: 700;
+}
+form { max-width: 520px; margin: 20px auto 0; text-align: left; }
+label {
+  display: block;
+  margin: 15px 0 6px;
+  color: #700078;
+  font-size: 18px;
+  font-weight: 700;
+}
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 3px inset #e04ab3;
+  border-radius: 0;
+  background: #fff;
+  color: #2a1035;
+  font: 17px "Comic Neue", "Comic Sans MS", cursive;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus { outline: 3px solid #ffe500; }
+.error-message {
+  display: none;
+  margin: 8px 0 0;
+  color: #d0004d;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.error-message.visible { display: block; }
+button {
+  display: block;
+  width: 100%;
+  margin: 20px auto 8px;
+  padding: 16px 10px;
+  border: 4px outset #ffb8ed;
+  background: linear-gradient(90deg, #ff39a8, #a600c7, #ff39a8);
+  color: #fff;
+  font: 700 16px "Press Start 2P", monospace;
+  line-height: 1.7;
+  cursor: pointer;
+  text-shadow: 2px 2px #65005c;
+}
+button:hover { filter: hue-rotate(35deg); transform: scale(1.02); }
+.tiny { font-size: 12px; opacity: .8; }
+.success-section { background: #ffe2f5; }
+.success-section[hidden] { display: none; }
+.julian-happy {
+  width: min(380px, 100%);
+  height: 250px;
+  object-fit: cover;
+  border: 8px ridge #ff39a8;
+}
+.success-section h2 { color: #ed008c; }
+.success-main {
+  color: #e00091;
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 700;
+  text-shadow: 2px 2px #ffe600;
+}
+footer, .counter { padding: 10px; text-align: center; font-size: 12px; }
+.counter { color: #fff; background: #260b35; }
+@media (max-width: 520px) {
+  .site { margin: 8px auto; padding: 8px; }
+  .sad-section, .form-section, .success-section { padding: 12px; }
+  button { font-size: 12px; }
+}

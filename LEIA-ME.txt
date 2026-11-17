@@ -1,0 +1,17 @@
+VIRE AMIGO DO JULIAN — COMO USAR
+
+1. Coloque estes três arquivos na mesma pasta:
+   index.html, style.css e script.js
+
+2. Coloque também três imagens JPEG nessa pasta, com estes nomes:
+   julian-fundo.jpg   (foto de fundo; ela será esticada na tela)
+   julian-triste.jpg  (foto triste da seção inicial)
+   julian-feliz.jpg   (foto feliz da tela final)
+
+3. Abra o index.html no navegador.
+
+O formulário é apenas cenográfico: o JavaScript cancela o envio, não faz requisições,
+não salva os campos e não usa os valores de nome, CPF ou cartão.
+Use somente dados inventados. Não digite informações reais.
+
+A validação do elogio exige a expressão "meu bem", sem diferenciar maiúsculas/minúsculas.
