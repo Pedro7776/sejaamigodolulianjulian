@@ -75,13 +75,14 @@ h2 {
   line-height: 1.7;
 }
 .julian-sad {
-    display: block !important;
-    width: 150px !important;
-    height: 110px !important;
-    max-width: 100% !important;
+    display: block;
+    width: 100%;
+    max-width: 140px;
+    height: 100px;
     object-fit: cover;
-    margin: 12px auto !important;
-    border: 5px ridge #e60091;
+    margin: 12px auto;
+    border: 4px ridge #e60091;
+    box-sizing: border-box;
 }
 .sad-caption {
   color: #e00070;
